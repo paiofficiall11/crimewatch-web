@@ -418,6 +418,7 @@ class CompiledApp {
       _1221: x0 => x0.repetitionCount,
       _1222: x0 => x0.frameCount,
       _1265: (x0,x1) => x0.getItem(x1),
+      _1266: (x0,x1,x2) => x0.setItem(x1,x2),
       _1280: (x0,x1,x2,x3) => x0.addEventListener(x1,x2,x3),
       _1281: (x0,x1,x2,x3) => x0.removeEventListener(x1,x2,x3),
       _1282: (x0,x1) => x0.createElement(x1),
@@ -452,6 +453,11 @@ class CompiledApp {
         }
         return null;
       },
+      _1321: () => {
+        return typeof process != "undefined" &&
+               Object.prototype.toString.call(process) == "[object process]" &&
+               process.platform == "win32"
+      },
       _1322: () => new WeakMap(),
       _1323: (map, o) => map.get(o),
       _1324: (map, o, v) => map.set(o, v),
@@ -461,6 +467,7 @@ class CompiledApp {
       _1337: s => JSON.stringify(s),
       _1338: s => printToConsole(s),
       _1339: (o, p, r) => o.replaceAll(p, () => r),
+      _1340: (o, p, r) => o.replace(p, () => r),
       _1341: Function.prototype.call.bind(String.prototype.toLowerCase),
       _1342: s => s.toUpperCase(),
       _1343: s => s.trim(),
@@ -477,6 +484,7 @@ class CompiledApp {
       _1357: (a, i) => a.splice(i, 1),
       _1358: (a, s) => a.join(s),
       _1359: (a, s, e) => a.slice(s, e),
+      _1361: (a, b) => a == b ? 0 : (a > b ? 1 : -1),
       _1362: a => a.length,
       _1364: (a, i) => a[i],
       _1365: (a, i, v) => a[i] = v,
